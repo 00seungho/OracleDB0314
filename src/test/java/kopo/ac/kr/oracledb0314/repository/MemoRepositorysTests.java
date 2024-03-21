@@ -71,8 +71,8 @@ public class  MemoRepositorysTests {
         //MemoRepository의 deleteById(Memo Entity 객체의 Id로 설정된 필드값)을 호출해서 delete 한다.
          Long mno = 100L;
          memoRepository.deleteById(mno);
-
-     }
+    //주석
+     }  
 
 }
 
