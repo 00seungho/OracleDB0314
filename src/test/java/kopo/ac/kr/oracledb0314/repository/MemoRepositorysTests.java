@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
 import java.util.stream.IntStream;
 
  @SpringBootTest
@@ -27,4 +28,17 @@ public class  MemoRepositorysTests {
         });
     }
 
+     @Test
+     public void testSelcect(){
+        Long mno = 100L;
+        Optional<Memo> result = memoRepository.findById(mno);
+        //Optional로 반환함
+         System.out.println("====================================================");
+         if (result.isPresent()){
+             Memo memo = result.get();
+             System.out.println(memo);
+         }
+     }
 }
+
+
