@@ -5,6 +5,7 @@ import kopo.ac.kr.oracledb0314.repository.MemoRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.stream.IntStream;
@@ -39,6 +40,23 @@ public class  MemoRepositorysTests {
              System.out.println(memo);
          }
      }
+     @Test
+     @Transactional
+     public void testSelcect2(){
+         Long mno = 100L;
+         Memo memo = memoRepository.getOne(mno);
+         //Optional로 반환함
+         System.out.println("====================================================");
+             System.out.println(memo);
+         }
+     @Test
+     public void testUpdate(){
+         Memo memo = Memo.builder().mno(95L).memoText("수정된 텍스트").build();
+         Memo memo1 = memoRepository.save(memo);
+
+         System.out.println(memo1);
+     }
+
 }
 
 
